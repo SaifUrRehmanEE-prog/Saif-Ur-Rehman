@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Engineering portfolio of Saif Ur Rehman, Electrical and Instrumentation Engineer: publications, projects, experience and certifications.">
+<meta property="og:title" content="Saif Ur Rehman, Electrical and Instrumentation Engineer">
+<meta property="og:description" content="Publications, projects, experience and certifications.">
+<meta property="og:image" content="mppt-boards.jpg">
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Saif Ur Rehman Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column with a machine-nameplate header; every project and course carries an area tag (CTL / PWR / RF) that maps to the three study areas. */
+:root{
+  --bg:#f3f6f7; --surface:#ffffff; --ink:#12262e; --muted:#536a73; --line:#cfd9dd;
+  --accent:#0b6b7a; --accent-soft:#dcecef; --signal:#a8620a; --signal-soft:#f6e9d3;
+  --rf:#5b4a9c; --rf-soft:#e8e4f5; --grid:#dfe7ea; --run:#1c8048; --veil:rgba(10,22,27,.92);
+  --display:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e191d; --surface:#15242a; --ink:#e4eef1; --muted:#93a9b1; --line:#2a3d44;
+    --accent:#5cc3d2; --accent-soft:#173a42; --signal:#e6a94b; --signal-soft:#3b2c12;
+    --rf:#b3a5ee; --rf-soft:#2c2650; --grid:#16282e; --run:#62d08d; --veil:rgba(3,8,10,.94); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e191d; --surface:#15242a; --ink:#e4eef1; --muted:#93a9b1; --line:#2a3d44;
+  --accent:#5cc3d2; --accent-soft:#173a42; --signal:#e6a94b; --signal-soft:#3b2c12;
+  --rf:#b3a5ee; --rf-soft:#2c2650; --grid:#16282e; --run:#62d08d; --veil:rgba(3,8,10,.94); color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:1000px;margin:0 auto;padding-inline:20px;padding-block:0 64px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(2.2rem,6vw,3.4rem);font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.75rem;font-weight:600}
+h3{font-size:1.2rem;font-weight:600}
+p{margin:0}
+ul{margin:0;padding-left:1.1em}
+.mono{font-family:var(--mono);font-size:.8rem}
+.label{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{padding-block:10px;display:flex;flex-wrap:wrap;gap:6px 18px}
+nav a{font-family:var(--mono);font-size:.78rem;text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--accent)}
+
+header{padding-block:44px 8px;display:flex;flex-direction:column;gap:18px}
+.intro{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;align-items:start}
+.who{display:flex;flex-direction:column;gap:18px;min-width:0}
+.scope{background:var(--surface);border:1px solid var(--line);padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.scope svg{width:100%;height:auto;display:block}
+.scope .ax{stroke:var(--ink);stroke-width:1.2;fill:none}
+.scope .grid{stroke:var(--line);stroke-width:1;stroke-dasharray:3 4;fill:none}
+.scope .tk{font-family:var(--mono);font-size:9.5px;fill:var(--muted)}
+.scope .curve{stroke:var(--accent);stroke-width:2.2;fill:none}
+.scope .drop{stroke:var(--signal);stroke-width:1;stroke-dasharray:2 3;fill:none}
+.scope .mpp{stroke:var(--muted);stroke-width:1.3;fill:none}
+.scope .op{fill:var(--signal);stroke:var(--surface);stroke-width:1.5}
+.read{display:flex;flex-wrap:wrap;gap:4px 16px;font-family:var(--mono);font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.read b{color:var(--ink);font-weight:500}
+.cap{font-size:.8rem;color:var(--muted)}
+@media (max-width:820px){.intro{grid-template-columns:1fr}}
+.role{font-family:var(--display);font-size:1.3rem;font-weight:500;color:var(--accent)}
+.lead{max-width:65ch;font-size:1.05rem}
+.plate{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border:1.5px solid var(--ink);background:var(--surface)}
+.plate div{padding:10px 14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:2px;min-width:0}
+.plate b{font-family:var(--display);font-size:1.15rem;font-weight:600}
+.contact{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center}
+.contact span.val{font-family:var(--mono);font-size:.88rem;user-select:all;overflow-wrap:anywhere}
+button.copy{font-family:var(--mono);font-size:.72rem;background:var(--surface);color:var(--ink);border:1px solid var(--line);padding:3px 8px;cursor:pointer}
+button.copy:hover{border-color:var(--accent)}
+
+section{padding-block:36px 0;display:flex;flex-direction:column;gap:18px}
+section > .head{display:flex;flex-direction:column;gap:6px;border-top:1.5px solid var(--ink);padding-top:14px}
+.head p{color:var(--muted);max-width:65ch}
+
+.tag{display:inline-block;font-family:var(--mono);font-size:.68rem;font-weight:500;padding:1px 6px;letter-spacing:.04em;white-space:nowrap}
+.ctl{background:var(--accent-soft);color:var(--accent)}
+.pwr{background:var(--signal-soft);color:var(--signal)}
+.rf{background:var(--rf-soft);color:var(--rf)}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+
+.areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.area{background:var(--surface);border:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.area dl{margin:0;display:flex;flex-direction:column;gap:10px}
+.area dt{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.area dd{margin:0;font-size:.93rem}
+
+.pubs{list-style:none;padding:0;display:flex;flex-direction:column;gap:0}
+.pubs li{display:grid;grid-template-columns:64px 1fr;gap:14px;padding-block:14px;border-bottom:1px solid var(--line)}
+.pubs .yr{font-family:var(--mono);font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:3px}
+.pubs .body{display:flex;flex-direction:column;gap:5px;min-width:0}
+.pubs .t{font-weight:600}
+.pubs .j{color:var(--muted);font-size:.93rem}
+
+.rows{display:flex;flex-direction:column}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:6px 24px;padding-block:14px;border-bottom:1px solid var(--line)}
+.row .l{display:flex;flex-direction:column;gap:5px;min-width:0}
+.row .org{color:var(--muted);font-size:.9rem}
+.row .r{font-size:.95rem;min-width:0}
+.feature{display:flex;flex-direction:column;gap:14px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.feature .l{display:flex;flex-direction:column;gap:6px;max-width:65ch}
+.feature .l p{font-size:.95rem}
+.feature .org{color:var(--muted);font-size:.9rem}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+figure{margin:0;display:flex;flex-direction:column;gap:6px;min-width:0}
+figure img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border:1px solid var(--line);background:var(--surface)}
+figure.vid{max-width:640px}
+figure.vid video{width:100%;height:auto;aspect-ratio:16/9;display:block;border:1px solid var(--line);background:var(--ink)}
+figure.vid video.wide{aspect-ratio:1024/416}
+.shots.one{grid-template-columns:minmax(0,440px)}
+.shots.draw{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.shots.draw img{aspect-ratio:auto;object-fit:contain;height:auto}
+figcaption{font-size:.82rem;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 28px}
+.mini{padding-block:10px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.mini span:first-child{min-width:0}
+
+.job{display:grid;grid-template-columns:150px minmax(0,1fr);gap:6px 24px;padding-block:16px;border-bottom:1px solid var(--line)}
+.job .when{font-family:var(--mono);font-size:.78rem;color:var(--muted);padding-top:4px}
+.job .what{display:flex;flex-direction:column;gap:6px;min-width:0}
+.job li{font-size:.95rem}
+
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px 28px}
+.certs > div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.certs li{font-size:.93rem}
+.certs li span{color:var(--muted)}
+
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;vertical-align:top;padding:10px 12px 10px 0;border-bottom:1px solid var(--line)}
+th{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500;white-space:nowrap}
+td:first-child{font-weight:600;white-space:nowrap}
+footer{padding-block:36px 0;color:var(--muted);font-size:.85rem}
+
+@media (max-width:640px){
+  .row,.job{grid-template-columns:1fr}
+  .pubs li{grid-template-columns:1fr;gap:4px}
+  td:first-child{white-space:normal}
+}
+
+/* polish and motion */
+header{position:relative;isolation:isolate}
+header::before{content:"";position:absolute;inset:0 -20px;z-index:-1;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;-webkit-mask-image:linear-gradient(#000 30%,transparent 92%);mask-image:linear-gradient(#000 30%,transparent 92%)}
+.status{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.8rem;color:var(--muted);margin-top:8px}
+.led{width:9px;height:9px;border-radius:50%;background:var(--run);flex:none;animation:led 2.2s ease-out infinite}
+@keyframes led{0%{box-shadow:0 0 0 0 var(--run)}70%,100%{box-shadow:0 0 0 7px transparent}}
+nav a{padding-block:3px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+nav a.on{color:var(--ink);border-bottom-color:var(--accent)}
+section{scroll-margin-top:96px}
+section > .head{position:relative}
+section > .head::after{content:"";position:absolute;left:0;top:-1.5px;height:4px;width:72px;background:var(--accent);transform-origin:left;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+section > .head.pre::after{transform:scaleX(0)}
+section > *{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+section > .rv{transform:translateY(18px)}
+.area{transition:transform .2s,border-color .2s}
+.area:hover{transform:translateY(-3px);border-color:var(--accent)}
+.row,.job,.pubs li{padding-inline:10px;margin-inline:-10px;transition:background .2s,opacity .25s}
+.row:hover,.job:hover,.pubs li:hover{background:var(--surface)}
+.mini,.feature,.area{transition:opacity .25s,transform .2s,border-color .2s}
+.dim{opacity:.25}
+.filter{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filter button{font-family:var(--mono);font-size:.75rem;background:var(--surface);color:var(--ink);border:1px solid var(--line);padding:5px 12px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.filter button:hover{border-color:var(--accent)}
+.filter button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+figure img{cursor:zoom-in;transition:border-color .2s}
+figure img:hover{border-color:var(--accent)}
+.flow{margin-top:12px;max-width:440px}
+.flow svg{width:100%;height:auto;display:block}
+.flow .bx{fill:var(--surface);stroke:var(--ink);stroke-width:1.2}
+.flow .t1{font-family:var(--display);font-size:10.5px;font-weight:600;fill:var(--ink)}
+.flow .t2{font-family:var(--mono);font-size:7.6px;fill:var(--muted)}
+.flow .ln{stroke:var(--accent);stroke-width:1.6;stroke-dasharray:5 4;fill:none;animation:flow 1s linear infinite}
+.flow .ah{fill:var(--accent)}
+@keyframes flow{from{stroke-dashoffset:9}to{stroke-dashoffset:0}}
+#lb{position:fixed;inset:0;z-index:20;background:var(--veil);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px;cursor:zoom-out}
+#lb img{max-width:100%;max-height:calc(100% - 60px);object-fit:contain;background:var(--surface)}
+#lb button{font-family:var(--mono);font-size:.8rem;background:var(--surface);color:var(--ink);border:1px solid var(--line);padding:6px 14px;cursor:pointer}
+@media (prefers-reduced-motion: reduce){.led,.flow .ln{animation:none}section > *,section > .head::after,.area{transition:none}}
+</style>
+
+<nav><div class="wrap">
+  <a href="#focus">Focus areas</a><a href="#publications">Publications</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#certifications">Certifications</a><a href="#education">Education</a><a href="#skills">Skills</a>
+</div></nav>
+
+<div class="wrap">
+<header>
+  <div class="intro">
+    <div class="who">
+      <div>
+        <h1>Saif Ur Rehman</h1>
+        <p class="role">Electrical and Instrumentation Engineer</p>      </div>
+      <p class="lead">I am an electrical engineer registered with the Pakistan Engineering Council. For more than three years I have worked on industrial automation, instrumentation and solar power systems, and I have published three journal papers on renewable energy and automation. I currently lead a shift as E&amp;I Engineer on Krones beverage lines at Gourmet Pakistan.</p>
+    </div>
+    <div class="scope">
+      <svg id="pv" viewBox="0 0 360 220" role="img" aria-label="Animated power-voltage curve of a solar panel with an operating point tracking the maximum power point">
+        <line class="ax" x1="40" y1="20" x2="40" y2="180"></line>
+        <line class="ax" x1="40" y1="180" x2="340" y2="180"></line>
+        <line class="grid" x1="40" y1="30" x2="340" y2="30"></line>
+        <line class="grid" x1="40" y1="105" x2="340" y2="105"></line>
+        <text class="tk" x="34" y="33" text-anchor="end">1.0</text>
+        <text class="tk" x="34" y="108" text-anchor="end">0.5</text>
+        <text class="tk" x="34" y="183" text-anchor="end">0</text>
+        <text class="tk" x="190" y="196" text-anchor="middle">0.5</text>
+        <text class="tk" x="340" y="196" text-anchor="middle">1.0</text>
+        <text class="tk" x="190" y="214" text-anchor="middle">Voltage (per unit of Voc)</text>
+        <text class="tk" x="12" y="100" text-anchor="middle" transform="rotate(-90 12 100)">Power (pu)</text>
+        <path id="pv-curve" class="curve" d=""></path>
+        <line id="pv-drop" class="drop" x1="0" y1="0" x2="0" y2="180"></line>
+        <circle id="pv-mpp" class="mpp" r="7" cx="0" cy="0"></circle>
+        <circle id="pv-op" class="op" r="4.5" cx="0" cy="0"></circle>
+      </svg>
+      <div class="read"><span>G <b id="rd-g">1000</b> W/m²</span><span>V <b id="rd-v">0.00</b> pu</span><span>P <b id="rd-p">0.00</b> pu</span></div>
+      <p class="cap">Perturb and observe MPPT, the algorithm from my senior design project. The dot steps the panel voltage and follows the maximum power point (ring) when irradiance changes. Illustration, not measured data.</p>
+    </div>
+  </div>
+  <div class="plate">
+    <div><span class="label">Registration</span><b>PEC, Pakistan</b></div>
+    <div><span class="label">Experience</span><b>3+ years</b></div>
+    <div><span class="label">Publications</span><b>3 journal papers</b></div>
+    <div><span class="label">Degree</span><b>BE Electrical</b></div>
+    <div><span class="label">English</span><b>IELTS 6.0</b></div>
+  </div>
+  <div class="contact">
+    <span class="label">Email</span><span class="val" id="email">saif.rehman9970@gmail.com</span>
+    <button class="copy" id="copy-email" type="button">Copy</button>
+    <span class="label">Mobile</span><span class="val">+92 309 2009600</span>
+    <a href="https://www.linkedin.com/in/engr-saif-ur-rehman-9a5016216">LinkedIn profile</a>
+  </div>
+</header>
+
+<section id="focus">
+  <div class="head">
+    <h2>Focus areas</h2>
+    <p>My work falls into three areas. The tags below appear next to each publication and project on this page. Select an area to highlight its items.</p>
+  </div>
+  <div class="filter" role="group" aria-label="Highlight items by area">
+    <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
+    <button type="button" id="f-ctl" data-f="ctl" aria-pressed="false">CTL control</button>
+    <button type="button" id="f-pwr" data-f="pwr" aria-pressed="false">PWR power</button>
+    <button type="button" id="f-rf" data-f="rf" aria-pressed="false">RF electronics</button>
+  </div>
+  <div class="areas">
+    <div class="area">
+      <div class="tags"><span class="tag ctl">CTL</span></div>
+      <h3>Control of renewable energy systems</h3>
+      <dl>
+        <div><dt>Research</dt><dd>Simulation study of a hybrid solar, wind and battery system with green hydrogen storage and energy management (MATLAB/Simulink). Paper on AI for predictive maintenance and process optimization in control systems.</dd></div>
+        <div><dt>Practice</dt><dd>STM32 energy-management firmware with MPPT, battery management and genset control for solar telecom sites. PLC, HMI, SCADA and drive work on production lines.</dd></div>
+        <div><dt>Courses</dt><dd>Linear Control Systems, Industrial Control and Automation, Instrumentation and Measurement, Signals and Systems, Embedded System Design.</dd></div>
+      </dl>
+    </div>
+    <div class="area">
+      <div class="tags"><span class="tag pwr">PWR</span></div>
+      <h3>Electric power systems and sustainable transport</h3>
+      <dl>
+        <div><dt>Research</dt><dd>MPPT-based solar buck boost inverter, built and tested on hardware with a P&amp;O algorithm on an ATmega328P. I designed its PCB in EasyEDA.</dd></div>
+        <div><dt>Practice</dt><dd>Hybrid power for 62 telecom sites with PV, lithium-ion storage, rectifiers and diesel gensets. Installation and commissioning of a 20 kW solar PV system. VFDs and servo drives in daily plant work.</dd></div>
+        <div><dt>Courses</dt><dd>Power Electronics, Electrical Machines, Electrical Network Analysis. Certificates in electric vehicles and in solar, wind, hydrogen and battery systems.</dd></div>
+      </dl>
+    </div>
+    <div class="area">
+      <div class="tags"><span class="tag rf">RF</span></div>
+      <h3>Microwave electronics and photonics</h3>
+      <dl>
+        <div><dt>Degree major</dt><dd>BE Electrical with a major in Electronics.</dd></div>
+        <div><dt>Practice</dt><dd>Radio frequency jammer built as an academic demonstration of interference. PCB design in EasyEDA for my final year inverter project. Power and remote monitoring for telecom shelters.</dd></div>
+        <div><dt>Courses</dt><dd>Electromagnetic Fields Theory, Microwave and Antennas, Communication Systems, Linear Integrated Circuits and Applications, Electronic Circuit Design, Digital Signal Processing.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="head"><h2>Publications</h2></div>
+  <ul class="pubs">
+    <li><span class="yr">2026</span><div class="body">
+      <span class="t">Artificial Intelligence-Enabled Industrial Automation and Control Systems for Predictive Maintenance and Process Optimization</span>
+      <span class="j">Policy Research Journal, Vol. 4, Issue 3</span>
+      <div class="tags"><span class="tag ctl">CTL</span></div></div></li>
+    <li><span class="yr">2026</span><div class="body">
+      <span class="t">Design and Optimization of a Hybrid Solar-Wind-Battery Energy System with Green Hydrogen Storage and Smart Energy Management for Reliable Power Supply in Remote Areas</span>
+      <span class="j">International Journal of Advanced Research, Vol. 3, Issue 2, April 2026. MATLAB/Simulink simulation study.</span>
+      <div class="tags"><span class="tag ctl">CTL</span><span class="tag pwr">PWR</span></div></div></li>
+    <li><span class="yr">2025</span><div class="body">
+      <span class="t">MPPT Based Solar Buck Boost Inverter Senior Design Project Report</span>
+      <span class="j">Spectrum of Engineering Sciences, Vol. 3, Issue 11, November 2025. Hardware built and tested by the project team.</span>
+      <div class="tags"><span class="tag pwr">PWR</span></div></div></li>
+  </ul>
+</section>
+
+<section id="projects">
+  <div class="head"><h2>Projects</h2></div>
+  <h3>Industrial projects</h3>
+  <div class="rows">
+    <div class="row"><div class="l"><b>Energy management for solar-powered telecom shelters</b><span class="org">SalTec Smart Power, 2023 to 2024</span><div class="tags"><span class="tag ctl">CTL</span><span class="tag pwr">PWR</span></div></div>
+      <div class="r">STM32 firmware for MPPT, battery management and genset control. CANopen and Modbus-RTU integration of Li-ion batteries, Deep Sea genset controllers and MPPT chargers, which cut site wiring by about 30%. Remote monitoring through RMS-4 over MQTT across 62 sites at 99.5% uptime. Secure over-the-air firmware update with a dual-image bootloader.
+        <div class="flow"><svg viewBox="0 0 420 96" role="img" aria-label="Data path: site equipment to STM32 controller over CANopen and Modbus-RTU, then to the RMS-4 portal over MQTT">
+          <rect class="bx" x="1" y="30" width="103" height="52"></rect>
+          <text class="t1" x="52" y="53" text-anchor="middle">Site equipment</text>
+          <text class="t2" x="52" y="68" text-anchor="middle">Li-ion, genset, MPPT</text>
+          <rect class="bx" x="158" y="30" width="104" height="52"></rect>
+          <text class="t1" x="210" y="53" text-anchor="middle">STM32 controller</text>
+          <text class="t2" x="210" y="68" text-anchor="middle">energy management</text>
+          <rect class="bx" x="316" y="30" width="103" height="52"></rect>
+          <text class="t1" x="367" y="53" text-anchor="middle">RMS-4 portal</text>
+          <text class="t2" x="367" y="68" text-anchor="middle">62 sites</text>
+          <line class="ln" x1="106" y1="56" x2="150" y2="56"></line><path class="ah" d="M150 52l7 4-7 4z"></path>
+          <line class="ln" x1="264" y1="56" x2="308" y2="56"></line><path class="ah" d="M308 52l7 4-7 4z"></path>
+          <text class="t2" x="131" y="14" text-anchor="middle">CANopen</text>
+          <text class="t2" x="131" y="24" text-anchor="middle">Modbus-RTU</text>
+          <text class="t2" x="289" y="24" text-anchor="middle">MQTT</text>
+        </svg></div></div></div>
+    <div class="row"><div class="l"><b>AS-i Safety commissioning on Krones Labeller and Blow Mold machines</b><span class="org">Gourmet Pakistan, 2026</span><div class="tags"><span class="tag ctl">CTL</span></div></div>
+      <div class="r">Commissioned Bihl+Wiedemann AS-i Safety on two machines of a running beverage line.</div></div>
+    <div class="row"><div class="l"><b>Sensor integration on chocolate and jelly processing lines</b><span class="org">Volka Food International, 2025</span><div class="tags"><span class="tag ctl">CTL</span></div></div>
+      <div class="r">Integrated 4-20 mA pressure sensors, capacitive level sensors and RTD temperature sensors. ADC signal scaling and Modbus-RTU to the main PLC for closed-loop speed control and low-level alarms.</div></div>
+    <div class="row"><div class="l"><b>20 kW solar PV system</b><span class="org">RCI Engineering, 2024</span><div class="tags"><span class="tag pwr">PWR</span></div></div>
+      <div class="r">Supervised installation and commissioning: panel mounting, DC and AC wiring, inverter installation and testing.</div></div>
+    <div class="row"><div class="l"><b>Automation of a blister making machine at Martin Dow</b><span class="org">ZS Enterprises, 2022 to 2023</span><div class="tags"><span class="tag ctl">CTL</span></div></div>
+      <div class="r">PLC and HMI work on a pharmaceutical packaging machine.</div></div>
+    <div class="row"><div class="l"><b>Automation of a capper machine at Syngenta Fertilizers</b><span class="org">ZS Enterprises, 2022 to 2023</span><div class="tags"><span class="tag ctl">CTL</span></div></div>
+      <div class="r">HMI design and programming for a bottle packaging line.</div></div>
+  </div>
+  <h3>Academic projects at KIET</h3>
+  <div class="feature">
+    <div class="l"><b>MPPT-based solar buck boost inverter</b><span class="org">Senior design project, 2022 to 2023</span><div class="tags"><span class="tag pwr">PWR</span></div>
+      <p>P&amp;O MPPT algorithm on an ATmega328P, built and tested on hardware by the project team. I designed the PCBs in EasyEDA. The work was later published in Spectrum of Engineering Sciences.</p></div>
+    <div class="shots">
+      <figure><img src="mppt-boards.jpg" alt="Two green circuit boards of the inverter project with capacitors, MOSFETs and a fuse holder" loading="lazy"><figcaption>The inverter board (left) and the MPPT charge controller board (right) during assembly.</figcaption></figure>
+      <figure><img src="mppt-driver.jpg" alt="Close view of two IR2110 driver ICs next to a blue capacitor on the inverter board" loading="lazy"><figcaption>IR2110 gate driver ICs and the 1400 µF, 75 V capacitor on the inverter board.</figcaption></figure>
+    </div>
+    <span class="label">Bench test video, 2 min 10 s</span>
+    <figure class="vid">
+      <video controls preload="metadata" playsinline poster="mppt-demo-poster.jpg" src="mppt-demo.mp4"></video>
+      <figcaption>Bench test of the project hardware with a 12 V DC source, the controller board and a lamp load.</figcaption>
+    </figure>
+    <span class="label">Schematics and PCB layouts, drawn in EasyEDA, November 2022</span>
+    <div class="shots draw">
+      <figure><img src="mppt-schematic.png" alt="Schematic of the MPPT charge controller from solar input to battery output" loading="lazy"><figcaption>MPPT charge controller schematic: solar input, three MOSFETs driven through a TLP250 gate driver, inductor, shunt resistor and battery output.</figcaption></figure>
+      <figure><img src="mppt-layout.png" alt="Two-layer PCB layout of the MPPT charge controller board" loading="lazy"><figcaption>PCB layout of the MPPT charge controller board.</figcaption></figure>
+      <figure><img src="inverter-schematic.png" alt="Schematic of the H-bridge inverter with two IR2110 drivers and four MOSFETs" loading="lazy"><figcaption>Inverter schematic: H-bridge of four MOSFETs with two IR2110 drivers.</figcaption></figure>
+      <figure><img src="inverter-layout.png" alt="Two-layer PCB layout of the inverter board" loading="lazy"><figcaption>PCB layout of the inverter board.</figcaption></figure>
+    </div>
+  </div>
+  <div class="feature">
+    <div class="l"><b>Object counter with Arduino and ultrasonic sensor</b><span class="org">Academic project</span><div class="tags"><span class="tag ctl">CTL</span></div>
+      <p>An Arduino Uno reads an ultrasonic distance sensor, counts objects that pass in front of it and shows the count on an LCD.</p></div>
+    <div class="shots one">
+      <figure><img src="object-counter.jpg" alt="Perfboard with an Arduino Uno, a blue character LCD and an ultrasonic sensor at one end" loading="lazy"><figcaption>Arduino Uno, character LCD and ultrasonic sensor mounted on a perfboard.</figcaption></figure>
+    </div>
+    <figure class="vid">
+      <video muted controls preload="metadata" playsinline poster="object-counter-poster.jpg" src="object-counter-demo.mp4"></video>
+      <figcaption>The counter running, with the count shown on the LCD, 57 s.</figcaption>
+    </figure>
+  </div>
+  <div class="feature">
+    <div class="l"><b>Automatic street light system</b><span class="org">Academic project</span><div class="tags"><span class="tag ctl">CTL</span></div></div>
+    <figure class="vid">
+      <video class="wide" muted controls preload="metadata" playsinline poster="street-light-poster.jpg" src="street-light-demo.mp4"></video>
+      <figcaption>Demonstration on a model road with street light poles, 17 s.</figcaption>
+    </figure>
+  </div>
+  <div class="grid2">
+    <div class="mini"><span>Output-controlled SCR-based rectifier</span><span class="tag pwr">PWR</span></div>
+    <div class="mini"><span>PLC-based conveyor belt control</span><span class="tag ctl">CTL</span></div>
+    <div class="mini"><span>Industrial safety system with fire and vibration monitoring</span><span class="tag ctl">CTL</span></div>
+    <div class="mini"><span>Obstacle avoiding and line following robot (Arduino, team)</span><span class="tag ctl">CTL</span></div>
+    <div class="mini"><span>Radio frequency jammer (academic demonstration)</span><span class="tag rf">RF</span></div>
+    <div class="mini"><span>Digital logic stopwatch</span><span class="tag rf">RF</span></div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="head"><h2>Professional experience</h2></div>
+  <div class="rows">
+    <div class="job"><span class="when">Jan 2026 to present</span><div class="what"><h3>E&amp;I Engineer and shift lead, Gourmet Pakistan, Faisalabad</h3><ul>
+      <li>Electrical and instrumentation work on complete Krones beverage lines: Blowmold, Mixer, Filler, Labeller, Variopack, Palletizer and Robopack.</li>
+      <li>Troubleshooting, root-cause analysis, preventive maintenance and AS-i and Profibus diagnostics.</li>
+      <li>Commissioning support for new and upgraded equipment. I guide the supervisors and technicians on my shift.</li></ul></div></div>
+    <div class="job"><span class="when">Jan 2025 to Dec 2025</span><div class="what"><h3>Electrical and Instrumentation Engineer, Volka Food International, Multan</h3><ul>
+      <li>Led a technician team on installation, commissioning and maintenance of automated chocolate and jelly processing lines.</li>
+      <li>Worked on VFDs, servo drives, PLC, HMI and SCADA, and took part in FAT and SAT.</li></ul></div></div>
+    <div class="job"><span class="when">Sep 2024 to Dec 2024</span><div class="what"><h3>Site Engineer (contract), RCI Engineering, Karachi</h3><ul>
+      <li>Supervised installation and commissioning of a 20 kW solar PV system and coordinated the site crews.</li></ul></div></div>
+    <div class="job"><span class="when">Jun 2023 to Aug 2024</span><div class="what"><h3>Application Engineer, SalTec Smart Power, Karachi</h3><ul>
+      <li>Led an international field team deploying solar-powered telecom shelters with PV, lithium-ion storage, diesel backup and remote energy management.</li>
+      <li>Trained international technicians, which brought mean repair time down from about 4 hours to 45 minutes.</li></ul></div></div>
+    <div class="job"><span class="when">May 2022 to May 2023</span><div class="what"><h3>Junior Instrumentation Engineer (contract), ZS Enterprises, Karachi</h3><ul>
+      <li>Industrial panel design, PLC programming, HMI design, calibration and troubleshooting.</li></ul></div></div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="head"><h2>Certifications and licences</h2></div>
+  <div class="certs">
+    <div><span class="label">Registration and quality</span><ul>
+      <li>Registered Electrical Engineer <span>Pakistan Engineering Council</span></li>
+      <li>Lean Six Sigma Green Belt <span>IMC Certifications, April 2026</span></li>
+      <li>Lean Six Sigma Yellow Belt <span>IMC Certifications, April 2026</span></li></ul></div>
+    <div><span class="label">Renewable energy and electric mobility</span><ul>
+      <li>Complete Renewable Energy: Solar, Wind, Hydrogen, Battery <span>Udemy, January 2026</span></li>
+      <li>EV Evolution: Comprehensive Introduction to EVs <span>Coursera</span></li>
+      <li>Adoption of Solar Energy in Pakistan <span>PEC</span></li>
+      <li>Life Cycle Assessment for Engineers <span>PEC</span></li>
+      <li>Green Building Design and Construction <span>PEC</span></li></ul></div>
+    <div><span class="label">Automation, drives and control</span><ul>
+      <li>Advanced AC Drive: VFD, Servo and Stepper (PowerFlex and Delta) <span>Udemy</span></li>
+      <li>HMI and PLC Programming: Build and Interface Industrial Systems <span>Alison</span></li>
+      <li>BMS Building Management System Fundamentals (BACnet, Niagara) <span>Udemy</span></li>
+      <li>Ethical Hacking and Cyber Security for Industrial Control Systems <span>PEC</span></li>
+      <li>Reliability Engineering of Complex Systems <span>PEC</span></li></ul></div>
+    <div><span class="label">AI and data</span><ul>
+      <li>AI in Engineering Applications, Innovations and Future Trends <span>PEC</span></li>
+      <li>Machine Learning and Knowledge Management in Construction Industry <span>PEC</span></li>
+      <li>Cloud Computing AWS Implementation for Database Management <span>PEC</span></li>
+      <li>AI Fluency: Framework and Foundations <span>Anthropic</span></li>
+      <li>Claude Platform 101 <span>Anthropic</span></li>
+      <li>Introduction to subagents <span>Anthropic</span></li></ul></div>
+    <div><span class="label">Research, management and safety</span><ul>
+      <li>Scientific Paper Writing <span>PEC</span></li>
+      <li>Risk Assessment in Engineering Industry <span>PEC</span></li>
+      <li>HSE Management in Construction Industry <span>PEC</span></li>
+      <li>Using Tools for Quality and Productivity <span>PEC</span></li>
+      <li>Procurement and Contract Management <span>PEC</span></li>
+      <li>Modelling Water in Context of Pakistan Head Catchments <span>PEC</span></li>
+      <li>Business Communication: Effective Workplace Communication <span>Gourmet Pakistan</span></li>
+      <li>TEDx KIET Pakistan certificate <span>January 2023</span></li></ul></div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="head"><h2>Education</h2></div>
+  <div class="rows">
+    <div class="job"><span class="when">Jan 2019 to Feb 2023</span><div class="what"><h3>Bachelor of Engineering (Electrical), major in Electronics</h3>
+      <p>Karachi Institute of Economics and Technology (KIET)</p><ul>
+      <li>Senior design project: MPPT-based solar buck boost inverter.</li>
+      <li>Internships at ERA Automation &amp; Lab Pvt Ltd and Mindstorm Engineering.</li>
+      <li>Degree and transcript attested by HEC and the Ministry of Foreign Affairs.</li></ul></div></div>
+    <div class="job"><span class="when">2016 to 2018</span><div class="what"><h3>Higher Secondary Certificate (Pre-Engineering)</h3><p>Fazaia Degree College Rafiqui, Shorkot Cantt</p></div></div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="head"><h2>Technical skills and languages</h2></div>
+  <div class="tbl"><table>
+    <tr><th>Area</th><th>Tools and experience</th></tr>
+    <tr><td>PLC, HMI, SCADA</td><td>Siemens STEP 7 and TIA Portal, WinCC, Allen-Bradley Studio 5000, FactoryTalk, Wonderware InTouch, EcoStruxure Machine, Delta WPLSoft and DOPSoft</td></tr>
+    <tr><td>Drives</td><td>Servo drives (Allen-Bradley, Siemens, ABB) and VFDs (Danfoss, Delta, Allen-Bradley)</td></tr>
+    <tr><td>Industrial communication</td><td>AS-i, Profibus, Modbus, HART, DNP3, RS-485, CANopen, MQTT</td></tr>
+    <tr><td>Renewable energy</td><td>PV system design and maintenance, PVsyst, HelioScope, lithium-ion and VRLA batteries, rectifiers, diesel gensets</td></tr>
+    <tr><td>Simulation and electronics</td><td>MATLAB/Simulink, LabVIEW, Proteus, Altium, EasyEDA, LTspice, NI Multisim</td></tr>
+    <tr><td>CAD and planning</td><td>AutoCAD 2D and 3D, SolidWorks, Primavera P6</td></tr>
+    <tr><td>Programming</td><td>C, C++, Python, Arduino (beginner level)</td></tr>
+    <tr><td>Languages</td><td>Urdu and Punjabi (native), English (IELTS 6.0, 2026), German (A1)</td></tr>
+  </table></div>
+</section>
+
+<footer>Updated October 2026.</footer>
+</div>
+
+<div id="lb" hidden><img id="lb-img" alt=""><button type="button" id="lb-close">Close</button></div>
+<script>
+(function(){
+  var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* highlight by area */
+  var items=document.querySelectorAll('.pubs li,.row,.feature,.mini,.area'),fb=document.querySelectorAll('.filter button');
+  fb.forEach(function(b){b.addEventListener('click',function(){
+    var f=b.getAttribute('data-f');
+    fb.forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false');});
+    items.forEach(function(it){it.classList.toggle('dim',f!=='all'&&!it.querySelector('.tag.'+f));});
+  });});
+  /* image viewer */
+  var lb=document.getElementById('lb'),li=document.getElementById('lb-img');
+  function shut(){lb.hidden=true;li.removeAttribute('src');}
+  document.querySelectorAll('figure img').forEach(function(im){
+    im.tabIndex=0;im.setAttribute('role','button');
+    function open(){li.src=im.currentSrc||im.src;li.alt=im.alt;lb.hidden=false;}
+    im.addEventListener('click',open);
+    im.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
+  });
+  lb.addEventListener('click',shut);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden) shut();});
+  if(!('IntersectionObserver' in window)) return;
+  /* nav position */
+  var links={};document.querySelectorAll('nav a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  var spy=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){for(var k in links) links[k].classList.toggle('on',k===e.target.id);}
+  });},{rootMargin:'-25% 0px -65% 0px'});
+  document.querySelectorAll('section[id]').forEach(function(s){spy.observe(s);});
+  if(still) return;
+  /* settle-in for content below the first screen */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.remove('rv','pre');io.unobserve(e.target);}
+  });},{rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('section > *').forEach(function(el){
+    if(el.getBoundingClientRect().top>window.innerHeight){el.classList.add(el.classList.contains('head')?'pre':'rv');io.observe(el);}
+  });
+})();
+</script>
+<script>
+(function(){
+  var A=0.07, X0=40, X1=340, Y0=180, YS=150;
+  function P(v,g){var i=g-Math.exp((v-1)/A);return i>0?v*i:0;}
+  function best(g){var bv=0,bp=0;for(var k=0;k<=200;k++){var v=k/200,p=P(v,g);if(p>bp){bp=p;bv=v;}}return [bv,bp];}
+  var PM=best(1)[1];
+  function x(v){return X0+v*(X1-X0);} function y(p){return Y0-p/PM*YS;}
+  var curve=document.getElementById('pv-curve'),op=document.getElementById('pv-op'),drop=document.getElementById('pv-drop'),mpp=document.getElementById('pv-mpp');
+  var rg=document.getElementById('rd-g'),rv=document.getElementById('rd-v'),rp=document.getElementById('rd-p');
+  if(!curve) return;
+  var g=1,gT=1,v=0.2,vShow=0.2,dir=1,pPrev=0,lastStep=0,lastFlip=0;
+  function draw(){
+    var d='';for(var k=0;k<=100;k++){var vv=k/100;d+=(k?'L':'M')+x(vv).toFixed(1)+' '+y(P(vv,g)).toFixed(1);}
+    curve.setAttribute('d',d);
+    var b=best(g);mpp.setAttribute('cx',x(b[0]));mpp.setAttribute('cy',y(b[1]));
+    var p=P(vShow,g);op.setAttribute('cx',x(vShow));op.setAttribute('cy',y(p));
+    drop.setAttribute('x1',x(vShow));drop.setAttribute('x2',x(vShow));drop.setAttribute('y1',y(p));
+    rg.textContent=Math.round(g*1000);rv.textContent=vShow.toFixed(2);rp.textContent=(p/PM).toFixed(2);
+  }
+  var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(still){v=vShow=best(1)[0];draw();return;}
+  draw();
+  function frame(t){
+    if(!document.hidden){
+      if(!lastFlip) lastFlip=t;
+      if(t-lastFlip>7000){gT=gT===1?0.6:1;lastFlip=t;}
+      g+=(gT-g)*0.03;
+      if(t-lastStep>130){
+        var p=P(v,g); if(p<pPrev) dir=-dir; pPrev=p;
+        v=Math.min(0.99,Math.max(0.05,v+dir*0.02)); lastStep=t;
+      }
+      vShow+=(v-vShow)*0.18;
+      draw();
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+document.getElementById('copy-email').addEventListener('click', function(){
+  var b=this, el=document.getElementById('email');
+  function sel(){var r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);}
+  try{
+    navigator.clipboard.writeText(el.textContent).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy';},1500);},sel);
+  }catch(e){sel();}
+});
+</script>
+
+</body>
+</html>
