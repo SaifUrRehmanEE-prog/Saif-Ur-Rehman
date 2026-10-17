@@ -3,21 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Engineering portfolio of Saif Ur Rehman, Electrical and Instrumentation Engineer: publications, projects, experience and certifications.">
-<meta property="og:title" content="Saif Ur Rehman, Electrical and Instrumentation Engineer">
-<meta property="og:description" content="Publications, projects, experience and certifications.">
-<meta property="og:image" content="mppt-boards.jpg">
-<style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-</head>
-<body>
 <title>Saif Ur Rehman Portfolio</title>
+<meta name="description" content="Engineering portfolio of Saif Ur Rehman, Electrical and Instrumentation Engineer: electric power systems, control of renewable energy systems, drives and storage, with publications, projects and industrial experience.">
+<meta property="og:title" content="Saif Ur Rehman, Electrical and Instrumentation Engineer">
+<meta property="og:description" content="Power systems, renewable energy control, drives and storage: publications, projects and experience.">
+<meta property="og:image" content="mppt-boards.jpg">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: one reading column with a machine-nameplate header; every project and course carries an area tag (CTL / PWR / RF) that maps to the three study areas. */
+html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+/* Layout: one reading column with a machine-nameplate header. Every publication and project carries an area tag:
+   PWR power systems, CTL control of renewable energy systems, DRV drives, storage and power electronics, AUT industrial automation. */
 :root{
   --bg:#f3f6f7; --surface:#ffffff; --ink:#12262e; --muted:#536a73; --line:#cfd9dd;
   --accent:#0b6b7a; --accent-soft:#dcecef; --signal:#a8620a; --signal-soft:#f6e9d3;
-  --rf:#5b4a9c; --rf-soft:#e8e4f5; --grid:#dfe7ea; --run:#1c8048; --veil:rgba(10,22,27,.92);
+  --drv:#5b4a9c; --drv-soft:#e8e4f5; --aut:#4f5f17; --aut-soft:#ebefd8;
+  --grid:#dfe7ea; --run:#1c8048; --veil:rgba(10,22,27,.92);
   --display:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;
   --body:"IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
@@ -26,13 +26,15 @@
   :root:not([data-theme="light"]){
     --bg:#0e191d; --surface:#15242a; --ink:#e4eef1; --muted:#93a9b1; --line:#2a3d44;
     --accent:#5cc3d2; --accent-soft:#173a42; --signal:#e6a94b; --signal-soft:#3b2c12;
-    --rf:#b3a5ee; --rf-soft:#2c2650; --grid:#16282e; --run:#62d08d; --veil:rgba(3,8,10,.94); color-scheme:dark;
+    --drv:#b3a5ee; --drv-soft:#2c2650; --aut:#bcd06e; --aut-soft:#2a3114;
+    --grid:#16282e; --run:#62d08d; --veil:rgba(3,8,10,.94); color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --bg:#0e191d; --surface:#15242a; --ink:#e4eef1; --muted:#93a9b1; --line:#2a3d44;
   --accent:#5cc3d2; --accent-soft:#173a42; --signal:#e6a94b; --signal-soft:#3b2c12;
-  --rf:#b3a5ee; --rf-soft:#2c2650; --grid:#16282e; --run:#62d08d; --veil:rgba(3,8,10,.94); color-scheme:dark;
+  --drv:#b3a5ee; --drv-soft:#2c2650; --aut:#bcd06e; --aut-soft:#2a3114;
+  --grid:#16282e; --run:#62d08d; --veil:rgba(3,8,10,.94); color-scheme:dark;
 }
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
@@ -84,9 +86,10 @@ section > .head{display:flex;flex-direction:column;gap:6px;border-top:1.5px soli
 .head p{color:var(--muted);max-width:65ch}
 
 .tag{display:inline-block;font-family:var(--mono);font-size:.68rem;font-weight:500;padding:1px 6px;letter-spacing:.04em;white-space:nowrap}
-.ctl{background:var(--accent-soft);color:var(--accent)}
 .pwr{background:var(--signal-soft);color:var(--signal)}
-.rf{background:var(--rf-soft);color:var(--rf)}
+.ctl{background:var(--accent-soft);color:var(--accent)}
+.drv{background:var(--drv-soft);color:var(--drv)}
+.aut{background:var(--aut-soft);color:var(--aut)}
 .tags{display:flex;flex-wrap:wrap;gap:5px}
 
 .areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
@@ -94,6 +97,10 @@ section > .head{display:flex;flex-direction:column;gap:6px;border-top:1.5px soli
 .area dl{margin:0;display:flex;flex-direction:column;gap:10px}
 .area dt{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
 .area dd{margin:0;font-size:.93rem}
+.area dd.see{display:flex;flex-wrap:wrap;gap:2px 14px}
+.area dd.see a{font-size:.88rem}
+.found{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--aut);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.found p{font-size:.93rem;max-width:80ch}
 
 .pubs{list-style:none;padding:0;display:flex;flex-direction:column;gap:0}
 .pubs li{display:grid;grid-template-columns:64px 1fr;gap:14px;padding-block:14px;border-bottom:1px solid var(--line)}
@@ -151,12 +158,11 @@ footer{padding-block:36px 0;color:var(--muted);font-size:.85rem}
 /* polish and motion */
 header{position:relative;isolation:isolate}
 header::before{content:"";position:absolute;inset:0 -20px;z-index:-1;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;-webkit-mask-image:linear-gradient(#000 30%,transparent 92%);mask-image:linear-gradient(#000 30%,transparent 92%)}
-.status{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.8rem;color:var(--muted);margin-top:8px}
-.led{width:9px;height:9px;border-radius:50%;background:var(--run);flex:none;animation:led 2.2s ease-out infinite}
-@keyframes led{0%{box-shadow:0 0 0 0 var(--run)}70%,100%{box-shadow:0 0 0 7px transparent}}
 nav a{padding-block:3px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
 nav a.on{color:var(--ink);border-bottom-color:var(--accent)}
-section{scroll-margin-top:96px}
+section,.area,.found,.row,.feature{scroll-margin-top:96px}
+.area:target,.found:target{border-color:var(--accent)}
+.row:target,.feature:target{background:var(--surface);box-shadow:inset 3px 0 0 var(--accent)}
 section > .head{position:relative}
 section > .head::after{content:"";position:absolute;left:0;top:-1.5px;height:4px;width:72px;background:var(--accent);transform-origin:left;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 section > .head.pre::after{transform:scaleX(0)}
@@ -166,7 +172,7 @@ section > .rv{transform:translateY(18px)}
 .area:hover{transform:translateY(-3px);border-color:var(--accent)}
 .row,.job,.pubs li{padding-inline:10px;margin-inline:-10px;transition:background .2s,opacity .25s}
 .row:hover,.job:hover,.pubs li:hover{background:var(--surface)}
-.mini,.feature,.area{transition:opacity .25s,transform .2s,border-color .2s}
+.mini,.feature,.area,.found{transition:opacity .25s,transform .2s,border-color .2s}
 .dim{opacity:.25}
 .filter{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .filter button{font-family:var(--mono);font-size:.75rem;background:var(--surface);color:var(--ink);border:1px solid var(--line);padding:5px 12px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
@@ -177,16 +183,21 @@ figure img:hover{border-color:var(--accent)}
 .flow{margin-top:12px;max-width:440px}
 .flow svg{width:100%;height:auto;display:block}
 .flow .bx{fill:var(--surface);stroke:var(--ink);stroke-width:1.2}
+.flow .bx.alt{stroke-dasharray:4 3}
 .flow .t1{font-family:var(--display);font-size:10.5px;font-weight:600;fill:var(--ink)}
 .flow .t2{font-family:var(--mono);font-size:7.6px;fill:var(--muted)}
 .flow .ln{stroke:var(--accent);stroke-width:1.6;stroke-dasharray:5 4;fill:none;animation:flow 1s linear infinite}
+.flow .ln.alt{stroke:var(--signal)}
 .flow .ah{fill:var(--accent)}
+.flow .ah.alt{fill:var(--signal)}
 @keyframes flow{from{stroke-dashoffset:9}to{stroke-dashoffset:0}}
 #lb{position:fixed;inset:0;z-index:20;background:var(--veil);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px;cursor:zoom-out}
 #lb img{max-width:100%;max-height:calc(100% - 60px);object-fit:contain;background:var(--surface)}
 #lb button{font-family:var(--mono);font-size:.8rem;background:var(--surface);color:var(--ink);border:1px solid var(--line);padding:6px 14px;cursor:pointer}
-@media (prefers-reduced-motion: reduce){.led,.flow .ln{animation:none}section > *,section > .head::after,.area{transition:none}}
+@media (prefers-reduced-motion: reduce){.flow .ln{animation:none}section > *,section > .head::after,.area{transition:none}}
 </style>
+</head>
+<body>
 
 <nav><div class="wrap">
   <a href="#focus">Focus areas</a><a href="#publications">Publications</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#certifications">Certifications</a><a href="#education">Education</a><a href="#skills">Skills</a>
@@ -198,8 +209,9 @@ figure img:hover{border-color:var(--accent)}
     <div class="who">
       <div>
         <h1>Saif Ur Rehman</h1>
-        <p class="role">Electrical and Instrumentation Engineer</p>      </div>
-      <p class="lead">I am an electrical engineer registered with the Pakistan Engineering Council. For more than four years I have worked on industrial automation, instrumentation and solar power systems, and I have published three journal papers on renewable energy and automation. I currently lead a shift as E&amp;I Engineer on Krones beverage lines at Gourmet Pakistan.</p>
+        <p class="role">Electrical and Instrumentation Engineer</p>
+      </div>
+      <p class="lead">I am an electrical engineer registered with the Pakistan Engineering Council. My work has covered plant power distribution, solar systems with battery storage, and the drives and controls that run production machines. I have more than four years of experience in automation, instrumentation and solar power, and three published journal papers on renewable energy and automation. I currently lead a shift as E&amp;I Engineer on Krones beverage lines at Gourmet Pakistan.</p>
     </div>
     <div class="scope">
       <svg id="pv" viewBox="0 0 360 220" role="img" aria-label="Animated power-voltage curve of a solar panel with an operating point tracking the maximum power point">
@@ -229,6 +241,7 @@ figure img:hover{border-color:var(--accent)}
     <div><span class="label">Publications</span><b>3 journal papers</b></div>
     <div><span class="label">Degree</span><b>BE Electrical</b></div>
     <div><span class="label">English</span><b>IELTS 6.0</b></div>
+    <div><span class="label">Degree taught in</span><b>English</b></div>
   </div>
   <div class="contact">
     <span class="label">Email</span><span class="val" id="email">saif.rehman9970@gmail.com</span>
@@ -241,42 +254,51 @@ figure img:hover{border-color:var(--accent)}
 <section id="focus">
   <div class="head">
     <h2>Focus areas</h2>
-    <p>My work falls into three areas. The tags below appear next to each publication and project on this page. Select an area to highlight its items.</p>
+    <p>My work falls into three areas, and industrial automation sits under all of them. Each publication and project on this page carries the tag of its area. Select an area to highlight its items, or follow the links in each card.</p>
   </div>
   <div class="filter" role="group" aria-label="Highlight items by area">
-    <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
-    <button type="button" id="f-ctl" data-f="ctl" aria-pressed="false">CTL control</button>
-    <button type="button" id="f-pwr" data-f="pwr" aria-pressed="false">PWR power</button>
-    <button type="button" id="f-rf" data-f="rf" aria-pressed="false">RF electronics</button>
+    <button type="button" data-f="all" aria-pressed="true">All</button>
+    <button type="button" data-f="pwr" aria-pressed="false">PWR power systems</button>
+    <button type="button" data-f="ctl" aria-pressed="false">CTL renewable energy control</button>
+    <button type="button" data-f="drv" aria-pressed="false">DRV drives and storage</button>
+    <button type="button" data-f="aut" aria-pressed="false">AUT automation</button>
   </div>
   <div class="areas">
-    <div class="area">
+    <div class="area" id="power-systems">
+      <div class="tags"><span class="tag pwr">PWR</span></div>
+      <h3>Electric power systems</h3>
+      <dl>
+        <div><dt>Practice</dt><dd>At Gourmet Pakistan I took part in the FAT and SAT of the plant's 132/11.5 kV, 20/26 MVA step-down transformer with on-load tap changer. I look after the plant's HT and LT distribution: two 3,500 kVA transformers in parallel step 11 kV down to 440 V, and Perkins and Caterpillar generator sets carry the load when grid supply fails. Earlier work: a 20 kW solar PV installation, and hybrid telecom sites with PV, lithium-ion storage, rectifiers and diesel gensets.</dd></div>
+        <div><dt>Research</dt><dd>Design, optimization and energy management of a hybrid solar, wind and battery system with green hydrogen storage for reliable supply in remote areas (MATLAB/Simulink).</dd></div>
+        <div><dt>Courses</dt><dd>Electrical Network Analysis, Electrical Machines, Power Electronics, Electromagnetic Fields Theory.</dd></div>
+        <div><dt>On this page</dt><dd class="see"><a href="#p-transformer">Transformer FAT and SAT</a><a href="#p-distribution">HT and LT distribution</a><a href="#p-pv">20 kW solar PV</a><a href="#p-telecom">Solar telecom sites</a></dd></div>
+      </dl>
+    </div>
+    <div class="area" id="renewable-control">
       <div class="tags"><span class="tag ctl">CTL</span></div>
       <h3>Control of renewable energy systems</h3>
       <dl>
-        <div><dt>Research</dt><dd>Simulation study of a hybrid solar, wind and battery system with green hydrogen storage and energy management (MATLAB/Simulink). Paper on AI for predictive maintenance and process optimization in control systems.</dd></div>
-        <div><dt>Practice</dt><dd>Integration of lithium-ion batteries, generator sets and rectifiers over Modbus-RTU for solar telecom sites. PLC, HMI, SCADA and drive work on production lines.</dd></div>
-        <div><dt>Courses</dt><dd>Linear Control Systems, Industrial Control and Automation, Instrumentation and Measurement, Signals and Systems, Embedded System Design.</dd></div>
+        <div><dt>Research</dt><dd>Perturb and observe MPPT on an ATmega32 in my senior design project, built and tested on hardware. Smart energy management in the hybrid solar, wind, battery and hydrogen study. A paper on AI for predictive maintenance and process optimization in industrial control systems.</dd></div>
+        <div><dt>Practice</dt><dd>Monitoring of battery state of charge, temperature, fuel level and alarms for more than 60 solar telecom sites on the RMS-4 platform, with site equipment on Modbus-RTU. Sensor signal scaling and Modbus-RTU links to the main PLC for closed-loop speed control on food processing lines.</dd></div>
+        <div><dt>Courses</dt><dd>Linear Control Systems, Industrial Control and Automation, Instrumentation and Measurement, Signals and Systems, Digital Signal Processing.</dd></div>
+        <div><dt>On this page</dt><dd class="see"><a href="#p-mppt">MPPT inverter project</a><a href="#publications">Publications</a><a href="#p-telecom">Telecom site monitoring</a><a href="#p-sensors">Closed-loop speed control</a></dd></div>
       </dl>
     </div>
-    <div class="area">
-      <div class="tags"><span class="tag pwr">PWR</span></div>
-      <h3>Electric power systems and sustainable transport</h3>
+    <div class="area" id="drives-storage">
+      <div class="tags"><span class="tag drv">DRV</span></div>
+      <h3>Drives, storage and power electronics</h3>
       <dl>
-        <div><dt>Research</dt><dd>MPPT-based solar buck boost inverter, built and tested on hardware with a P&amp;O algorithm on an ATmega32. I designed its PCB in EasyEDA.</dd></div>
-        <div><dt>Practice</dt><dd>Remote support for solar-powered telecom sites with PV, lithium-ion storage, rectifiers and diesel gensets. Installation and commissioning of a 20 kW solar PV system. VFDs and servo drives in daily plant work.</dd></div>
-        <div><dt>Courses</dt><dd>Power Electronics, Electrical Machines, Electrical Network Analysis. Certificates in electric vehicles and in solar, wind, hydrogen and battery systems.</dd></div>
+        <div><dt>Practice</dt><dd>Servo drives and VFDs on Krones beverage lines, where I handle servo and palletizer faults myself. On chocolate and jelly lines at Volka: VFDs, servo drives, star-delta, DOL and soft starters, and motor protection relays. Integration of Wolong and Changhong lithium-ion batteries, rectifiers and generator sets over Modbus-RTU on RS-485 for solar telecom sites.</dd></div>
+        <div><dt>Projects</dt><dd>MPPT charge controller and H-bridge inverter hardware with MOSFETs and TLP250 and IR2110 gate drivers, for which I designed the PCBs. Output-controlled SCR-based rectifier.</dd></div>
+        <div><dt>Courses</dt><dd>Power Electronics, Electrical Machines, Linear Control Systems, Microcontroller-Based Systems. Certificates in electric vehicles (Coursera) and in AC drives: VFD, servo and stepper (Udemy).</dd></div>
+        <div><dt>On this page</dt><dd class="see"><a href="#p-drives">Drives and motor control</a><a href="#p-mppt">Converter and inverter hardware</a><a href="#p-telecom">Battery integration</a></dd></div>
       </dl>
     </div>
-    <div class="area">
-      <div class="tags"><span class="tag rf">RF</span></div>
-      <h3>Microwave electronics and photonics</h3>
-      <dl>
-        <div><dt>Degree major</dt><dd>BE Electrical with a major in Electronics.</dd></div>
-        <div><dt>Practice</dt><dd>Radio frequency jammer built as an academic demonstration of interference. PCB design in EasyEDA for my final year inverter project. Power and remote monitoring for telecom shelters.</dd></div>
-        <div><dt>Courses</dt><dd>Electromagnetic Fields Theory, Microwave and Antennas, Communication Systems, Linear Integrated Circuits and Applications, Electronic Circuit Design, Digital Signal Processing.</dd></div>
-      </dl>
-    </div>
+  </div>
+  <div class="found" id="automation">
+    <div class="tags"><span class="tag aut">AUT</span></div>
+    <h3>Under all three: industrial automation</h3>
+    <p>PLC, HMI and SCADA work on beverage, food and pharmaceutical lines (Siemens TIA Portal and WinCC, Allen-Bradley Studio 5000 and FactoryTalk). AS-i Safety commissioning, AS-i and Profibus diagnostics, FAT and SAT, and machine automation projects at Martin Dow and Syngenta.</p>
   </div>
 </section>
 
@@ -286,15 +308,15 @@ figure img:hover{border-color:var(--accent)}
     <li><span class="yr">2026</span><div class="body">
       <span class="t">Artificial Intelligence-Enabled Industrial Automation and Control Systems for Predictive Maintenance and Process Optimization</span>
       <span class="j">Policy Research Journal, Vol. 4, Issue 3</span>
-      <div class="tags"><span class="tag ctl">CTL</span></div></div></li>
+      <div class="tags"><span class="tag ctl">CTL</span><span class="tag aut">AUT</span></div></div></li>
     <li><span class="yr">2026</span><div class="body">
       <span class="t">Design and Optimization of a Hybrid Solar-Wind-Battery Energy System with Green Hydrogen Storage and Smart Energy Management for Reliable Power Supply in Remote Areas</span>
       <span class="j">International Journal of Advanced Research, Vol. 3, Issue 2, April 2026. MATLAB/Simulink simulation study.</span>
-      <div class="tags"><span class="tag ctl">CTL</span><span class="tag pwr">PWR</span></div></div></li>
+      <div class="tags"><span class="tag pwr">PWR</span><span class="tag ctl">CTL</span></div></div></li>
     <li><span class="yr">2025</span><div class="body">
       <span class="t">MPPT Based Solar Buck Boost Inverter Senior Design Project Report</span>
       <span class="j">Spectrum of Engineering Sciences, Vol. 3, Issue 11, November 2025. Hardware built and tested by the project team.</span>
-      <div class="tags"><span class="tag pwr">PWR</span></div></div></li>
+      <div class="tags"><span class="tag ctl">CTL</span><span class="tag drv">DRV</span></div></div></li>
   </ul>
 </section>
 
@@ -302,7 +324,36 @@ figure img:hover{border-color:var(--accent)}
   <div class="head"><h2>Projects</h2></div>
   <h3>Industrial projects</h3>
   <div class="rows">
-    <div class="row"><div class="l"><b>Remote support for solar-powered telecom shelters</b><span class="org">SalTec Smart Power, 2023 to 2024</span><div class="tags"><span class="tag ctl">CTL</span><span class="tag pwr">PWR</span></div></div>
+    <div class="row" id="p-transformer"><div class="l"><b>FAT and SAT of a 132/11.5 kV, 20/26 MVA power transformer</b><span class="org">Gourmet Pakistan, 2026</span><div class="tags"><span class="tag pwr">PWR</span></div></div>
+      <div class="r">Took part in the factory and site acceptance tests of the plant's step-down transformer (WAPDA specification, on-load tap changer), which supplies the plant's 11 kV network.</div></div>
+    <div class="row" id="p-distribution"><div class="l"><b>HT and LT distribution of a beverage plant</b><span class="org">Gourmet Pakistan, 2026 to present</span><div class="tags"><span class="tag pwr">PWR</span></div></div>
+      <div class="r">I look after the plant's distribution, from the 132/11.5 kV transformer to the 440 V network. Two 3,500 kVA transformers in parallel step 11 kV down to 440 V, and Perkins and Caterpillar generator sets carry the load when grid supply fails in bad weather.
+        <div class="flow"><svg viewBox="0 0 420 150" role="img" aria-label="Plant power path: 132 kV grid supply, 132/11.5 kV 20/26 MVA transformer with on-load tap changer, two 3,500 kVA transformers in parallel from 11 kV to 440 V, plant loads, with backup generator sets">
+          <rect class="bx" x="1" y="8" width="90" height="56"></rect>
+          <text class="t1" x="46" y="31" text-anchor="middle">Grid supply</text>
+          <text class="t2" x="46" y="46" text-anchor="middle">132 kV</text>
+          <line class="ln" x1="93" y1="36" x2="102" y2="36"></line><path class="ah" d="M102 32l7 4-7 4z"></path>
+          <rect class="bx" x="110" y="8" width="90" height="56"></rect>
+          <text class="t1" x="155" y="28" text-anchor="middle">132/11.5 kV</text>
+          <text class="t2" x="155" y="42" text-anchor="middle">20/26 MVA</text>
+          <text class="t2" x="155" y="53" text-anchor="middle">OLTC</text>
+          <line class="ln" x1="202" y1="36" x2="211" y2="36"></line><path class="ah" d="M211 32l7 4-7 4z"></path>
+          <rect class="bx" x="219" y="8" width="90" height="56"></rect>
+          <text class="t1" x="264" y="28" text-anchor="middle">2 x 3,500 kVA</text>
+          <text class="t2" x="264" y="42" text-anchor="middle">in parallel</text>
+          <text class="t2" x="264" y="53" text-anchor="middle">11 kV to 440 V</text>
+          <line class="ln" x1="311" y1="36" x2="320" y2="36"></line><path class="ah" d="M320 32l7 4-7 4z"></path>
+          <rect class="bx" x="328" y="8" width="91" height="56"></rect>
+          <text class="t1" x="373" y="31" text-anchor="middle">Plant loads</text>
+          <text class="t2" x="373" y="46" text-anchor="middle">440 V LT</text>
+          <rect class="bx alt" x="219" y="94" width="200" height="48"></rect>
+          <text class="t1" x="319" y="114" text-anchor="middle">Backup generator sets</text>
+          <text class="t2" x="319" y="128" text-anchor="middle">Perkins and Caterpillar</text>
+          <line class="ln alt" x1="373" y1="92" x2="373" y2="73"></line><path class="ah alt" d="M369 73l4-7 4 7z"></path>
+        </svg></div></div></div>
+    <div class="row" id="p-pv"><div class="l"><b>20 kW solar PV system</b><span class="org">RCI Engineering, 2024</span><div class="tags"><span class="tag pwr">PWR</span></div></div>
+      <div class="r">Supervised installation and commissioning: panel mounting, DC and AC wiring, inverter installation and testing.</div></div>
+    <div class="row" id="p-telecom"><div class="l"><b>Remote support for solar-powered telecom shelters</b><span class="org">SalTec Smart Power, 2023 to 2024</span><div class="tags"><span class="tag pwr">PWR</span><span class="tag ctl">CTL</span><span class="tag drv">DRV</span></div></div>
       <div class="r">Supported the deployment of solar-powered telecom shelters for a customer in the Philippines, working remotely from Karachi. Each site combined PV, lithium-ion battery storage, rectifiers and diesel backup generators. Integrated generator sets, rectifiers and Wolong and Changhong lithium-ion batteries over Modbus-RTU on RS-485, and monitored battery state of charge, temperature, fuel level and alarms across more than 60 sites on the RMS-4 platform.
         <div class="flow"><svg viewBox="0 0 420 96" role="img" aria-label="Data path: site equipment to the RMS-4 portal over Modbus-RTU on RS-485">
           <rect class="bx" x="1" y="30" width="130" height="52"></rect>
@@ -314,20 +365,20 @@ figure img:hover{border-color:var(--accent)}
           <line class="ln" x1="133" y1="56" x2="281" y2="56"></line><path class="ah" d="M281 52l7 4-7 4z"></path>
           <text class="t2" x="210" y="46" text-anchor="middle">Modbus-RTU on RS-485</text>
         </svg></div></div></div>
-    <div class="row"><div class="l"><b>AS-i Safety commissioning on Krones Labeller and Blow Mold machines</b><span class="org">Gourmet Pakistan, 2026</span><div class="tags"><span class="tag ctl">CTL</span></div></div>
-      <div class="r">Commissioned Bihl+Wiedemann AS-i Safety on two machines of a running beverage line.</div></div>
-    <div class="row"><div class="l"><b>Sensor integration on chocolate and jelly processing lines</b><span class="org">Volka Food International, 2025</span><div class="tags"><span class="tag ctl">CTL</span></div></div>
+    <div class="row" id="p-drives"><div class="l"><b>Drives and motor control on production lines</b><span class="org">Volka Food International and Gourmet Pakistan, 2025 to present</span><div class="tags"><span class="tag drv">DRV</span></div></div>
+      <div class="r">Fault finding on servo drives and VFDs across the Krones lines at Gourmet. I handle servo and palletizer faults myself. On the chocolate and jelly lines at Volka I worked on VFDs, servo drives, star-delta, DOL and soft starters, and motor protection relays.</div></div>
+    <div class="row" id="p-sensors"><div class="l"><b>Sensor integration on chocolate and jelly processing lines</b><span class="org">Volka Food International, 2025</span><div class="tags"><span class="tag ctl">CTL</span><span class="tag drv">DRV</span></div></div>
       <div class="r">Integrated 4-20 mA pressure sensors, capacitive level sensors and RTD temperature sensors. ADC signal scaling and Modbus-RTU to the main PLC for closed-loop speed control and low-level alarms.</div></div>
-    <div class="row"><div class="l"><b>20 kW solar PV system</b><span class="org">RCI Engineering, 2024</span><div class="tags"><span class="tag pwr">PWR</span></div></div>
-      <div class="r">Supervised installation and commissioning: panel mounting, DC and AC wiring, inverter installation and testing.</div></div>
-    <div class="row"><div class="l"><b>Automation of a blister making machine at Martin Dow</b><span class="org">ZS Enterprises, 2022 to 2023</span><div class="tags"><span class="tag ctl">CTL</span></div></div>
+    <div class="row" id="p-asi"><div class="l"><b>AS-i Safety commissioning on Krones Labeller and Blow Mold machines</b><span class="org">Gourmet Pakistan, 2026</span><div class="tags"><span class="tag aut">AUT</span></div></div>
+      <div class="r">Commissioned Bihl+Wiedemann AS-i Safety on two machines of a running beverage line.</div></div>
+    <div class="row"><div class="l"><b>Automation of a blister making machine at Martin Dow</b><span class="org">ZS Enterprises, 2022 to 2023</span><div class="tags"><span class="tag aut">AUT</span></div></div>
       <div class="r">PLC and HMI work on a pharmaceutical packaging machine.</div></div>
-    <div class="row"><div class="l"><b>Automation of a capper machine at Syngenta Fertilizers</b><span class="org">ZS Enterprises, 2022 to 2023</span><div class="tags"><span class="tag ctl">CTL</span></div></div>
+    <div class="row"><div class="l"><b>Automation of a capper machine at Syngenta Fertilizers</b><span class="org">ZS Enterprises, 2022 to 2023</span><div class="tags"><span class="tag aut">AUT</span></div></div>
       <div class="r">HMI design and programming for a bottle packaging line.</div></div>
   </div>
   <h3>Academic projects at KIET</h3>
-  <div class="feature">
-    <div class="l"><b>MPPT-based solar buck boost inverter</b><span class="org">Senior design project, 2022 to 2023</span><div class="tags"><span class="tag pwr">PWR</span></div>
+  <div class="feature" id="p-mppt">
+    <div class="l"><b>MPPT-based solar buck boost inverter</b><span class="org">Senior design project, 2022 to 2023</span><div class="tags"><span class="tag ctl">CTL</span><span class="tag drv">DRV</span></div>
       <p>P&amp;O MPPT algorithm on an ATmega32, built and tested on hardware by the project team. I designed the PCBs in EasyEDA and built the circuit. The work was later published in Spectrum of Engineering Sciences.</p></div>
     <div class="shots">
       <figure><img src="mppt-boards.jpg" alt="Two green circuit boards of the inverter project with capacitors, MOSFETs and a fuse holder" loading="lazy"><figcaption>The inverter board (left) and the MPPT charge controller board (right) during assembly.</figcaption></figure>
@@ -347,7 +398,7 @@ figure img:hover{border-color:var(--accent)}
     </div>
   </div>
   <div class="feature">
-    <div class="l"><b>Object counter with Arduino and ultrasonic sensor</b><span class="org">Academic project</span><div class="tags"><span class="tag ctl">CTL</span></div>
+    <div class="l"><b>Object counter with Arduino and ultrasonic sensor</b><span class="org">Academic project</span><div class="tags"><span class="tag aut">AUT</span></div>
       <p>An Arduino Uno reads an ultrasonic distance sensor, counts objects that pass in front of it and shows the count on an LCD.</p></div>
     <div class="shots one">
       <figure><img src="object-counter.jpg" alt="Perfboard with an Arduino Uno, a blue character LCD and an ultrasonic sensor at one end" loading="lazy"><figcaption>Arduino Uno, character LCD and ultrasonic sensor mounted on a perfboard.</figcaption></figure>
@@ -358,19 +409,19 @@ figure img:hover{border-color:var(--accent)}
     </figure>
   </div>
   <div class="feature">
-    <div class="l"><b>Automatic street light system</b><span class="org">Academic project</span><div class="tags"><span class="tag ctl">CTL</span></div></div>
+    <div class="l"><b>Automatic street light system</b><span class="org">Academic project</span><div class="tags"><span class="tag aut">AUT</span></div></div>
     <figure class="vid">
       <video class="wide" muted controls preload="metadata" playsinline poster="street-light-poster.jpg" src="street-light-demo.mp4"></video>
       <figcaption>Demonstration on a model road with street light poles, 17 s.</figcaption>
     </figure>
   </div>
   <div class="grid2">
-    <div class="mini"><span>Output-controlled SCR-based rectifier</span><span class="tag pwr">PWR</span></div>
-    <div class="mini"><span>PLC-based conveyor belt control</span><span class="tag ctl">CTL</span></div>
-    <div class="mini"><span>Industrial safety system with fire and vibration monitoring</span><span class="tag ctl">CTL</span></div>
-    <div class="mini"><span>Obstacle avoiding and line following robot (Arduino, team)</span><span class="tag ctl">CTL</span></div>
-    <div class="mini"><span>Radio frequency jammer (academic demonstration)</span><span class="tag rf">RF</span></div>
-    <div class="mini"><span>Digital logic stopwatch</span><span class="tag rf">RF</span></div>
+    <div class="mini"><span>Output-controlled SCR-based rectifier</span><span class="tag drv">DRV</span></div>
+    <div class="mini"><span>PLC-based conveyor belt control</span><span class="tag aut">AUT</span></div>
+    <div class="mini"><span>Industrial safety system with fire and vibration monitoring</span><span class="tag aut">AUT</span></div>
+    <div class="mini"><span>Obstacle avoiding and line following robot (Arduino, team)</span><span class="tag aut">AUT</span></div>
+    <div class="mini"><span>Radio frequency jammer (academic demonstration)</span></div>
+    <div class="mini"><span>Digital logic stopwatch</span></div>
   </div>
 </section>
 
@@ -379,15 +430,18 @@ figure img:hover{border-color:var(--accent)}
   <div class="rows">
     <div class="job"><span class="when">Jan 2026 to present</span><div class="what"><h3>E&amp;I Engineer and shift lead, Gourmet Pakistan, Faisalabad</h3><ul>
       <li>Electrical and instrumentation work on complete Krones beverage lines: Blowmold, Mixer, Filler, Labeller, Variopack, Palletizer and Robopack.</li>
-      <li>Troubleshooting, root-cause analysis, preventive maintenance and AS-i and Profibus diagnostics.</li>
+      <li>I look after the plant's HT and LT distribution, from the 132/11.5 kV transformer to the 440 V network and the backup generator sets. Took part in the FAT and SAT of the 20/26 MVA power transformer.</li>
+      <li>Troubleshooting, root-cause analysis, preventive maintenance, servo and palletizer faults, and AS-i and Profibus diagnostics.</li>
       <li>Commissioning support for new and upgraded equipment. I guide the supervisors and technicians on my shift.</li></ul></div></div>
     <div class="job"><span class="when">Jan 2025 to Dec 2025</span><div class="what"><h3>Electrical and Instrumentation Engineer, Volka Food International, Multan</h3><ul>
       <li>Led a technician team on installation, commissioning and maintenance of automated chocolate and jelly processing lines.</li>
-      <li>Worked on VFDs, servo drives, PLC, HMI and SCADA, and took part in FAT and SAT.</li></ul></div></div>
+      <li>Worked on VFDs, servo drives, star-delta, DOL and soft starters, and motor protection relays.</li>
+      <li>PLC, HMI and SCADA work, and took part in FAT and SAT.</li></ul></div></div>
     <div class="job"><span class="when">Sep 2024 to Dec 2024</span><div class="what"><h3>Site Engineer (contract), RCI Engineering, Karachi</h3><ul>
       <li>Supervised installation and commissioning of a 20 kW solar PV system and coordinated the site crews.</li></ul></div></div>
     <div class="job"><span class="when">Jun 2023 to Aug 2024</span><div class="what"><h3>Application Engineer, SalTec Smart Power, Karachi</h3><ul>
       <li>Supported the deployment of solar-powered telecom shelters for a customer in the Philippines, working remotely from Karachi.</li>
+      <li>Integrated generator sets, rectifiers and lithium-ion batteries over Modbus-RTU on RS-485.</li>
       <li>Trained technicians from other countries in battery safety, grounding and system troubleshooting in weekly remote meetings, so that the sites were easier to install.</li></ul></div></div>
     <div class="job"><span class="when">May 2022 to May 2023</span><div class="what"><h3>Junior Instrumentation Engineer (contract), ZS Enterprises, Karachi</h3><ul>
       <li>Industrial panel design, PLC programming, HMI design, calibration and troubleshooting.</li></ul></div></div>
@@ -439,6 +493,7 @@ figure img:hover{border-color:var(--accent)}
       <p>Karachi Institute of Economics and Technology (KIET)</p><ul>
       <li>Senior design project: MPPT-based solar buck boost inverter.</li>
       <li>Internships at ERA Automation &amp; Lab Pvt Ltd and Mindstorm Engineering.</li>
+      <li>Medium of instruction: English.</li>
       <li>Degree and transcript attested by HEC and the Ministry of Foreign Affairs.</li></ul></div></div>
     <div class="job"><span class="when">2016 to 2018</span><div class="what"><h3>Higher Secondary Certificate (Pre-Engineering)</h3><p>Fazaia Degree College Rafiqui, Shorkot Cantt</p></div></div>
   </div>
@@ -448,14 +503,15 @@ figure img:hover{border-color:var(--accent)}
   <div class="head"><h2>Technical skills and languages</h2></div>
   <div class="tbl"><table>
     <tr><th>Area</th><th>Tools and experience</th></tr>
+    <tr><td>Power distribution</td><td>132 kV and 11 kV HT, 440 V LT, power transformers with on-load tap changer, transformers in parallel, generator sets (Perkins, Caterpillar), transformer FAT and SAT (as a participant)</td></tr>
+    <tr><td>Drives and motors</td><td>Servo drives (Allen-Bradley, Siemens, ABB), VFDs (Danfoss, Delta, Allen-Bradley), star-delta, DOL and soft starters, motor protection relays</td></tr>
     <tr><td>PLC, HMI, SCADA</td><td>Siemens STEP 7 and TIA Portal, WinCC, Allen-Bradley Studio 5000, FactoryTalk, Wonderware InTouch, EcoStruxure Machine, Delta WPLSoft and DOPSoft</td></tr>
-    <tr><td>Drives</td><td>Servo drives (Allen-Bradley, Siemens, ABB) and VFDs (Danfoss, Delta, Allen-Bradley)</td></tr>
     <tr><td>Industrial communication</td><td>AS-i, Profibus, Modbus, HART, DNP3, RS-485, CANopen, MQTT</td></tr>
-    <tr><td>Renewable energy</td><td>PV system design and maintenance, PVsyst, HelioScope, lithium-ion and VRLA batteries, rectifiers, diesel gensets</td></tr>
+    <tr><td>Renewable energy and storage</td><td>PV system design and maintenance, PVsyst, HelioScope, lithium-ion and VRLA batteries, rectifiers, diesel gensets</td></tr>
     <tr><td>Simulation and electronics</td><td>MATLAB/Simulink, LabVIEW, Proteus, Altium, EasyEDA, LTspice, NI Multisim</td></tr>
     <tr><td>CAD and planning</td><td>AutoCAD 2D and 3D, SolidWorks, Primavera P6</td></tr>
-    <tr><td>Programming</td><td>C, C++, Python, Arduino (beginner level)</td></tr>
-    <tr><td>Languages</td><td>Urdu and Punjabi (native), English (IELTS 6.0, 2026), German (A1)</td></tr>
+    <tr><td>Programming</td><td>C, C++, Python and Arduino (beginner level), assembly on a PIC18 microcontroller</td></tr>
+    <tr><td>Languages</td><td>Urdu and Punjabi (native), English (IELTS 6.0 in 2026, degree taught in English), German (A1)</td></tr>
   </table></div>
 </section>
 
@@ -467,7 +523,7 @@ figure img:hover{border-color:var(--accent)}
 (function(){
   var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   /* highlight by area */
-  var items=document.querySelectorAll('.pubs li,.row,.feature,.mini,.area'),fb=document.querySelectorAll('.filter button');
+  var items=document.querySelectorAll('.pubs li,.row,.feature,.mini,.area,.found'),fb=document.querySelectorAll('.filter button');
   fb.forEach(function(b){b.addEventListener('click',function(){
     var f=b.getAttribute('data-f');
     fb.forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false');});
@@ -491,7 +547,7 @@ figure img:hover{border-color:var(--accent)}
     if(e.isIntersecting){for(var k in links) links[k].classList.toggle('on',k===e.target.id);}
   });},{rootMargin:'-25% 0px -65% 0px'});
   document.querySelectorAll('section[id]').forEach(function(s){spy.observe(s);});
-  if(still) return;
+  if(still||location.hash) return;
   /* settle-in for content below the first screen */
   var io=new IntersectionObserver(function(es){es.forEach(function(e){
     if(e.isIntersecting){e.target.classList.remove('rv','pre');io.unobserve(e.target);}
